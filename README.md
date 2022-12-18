@@ -4,15 +4,15 @@
 This application is a Node.js command-line application that also utilizes Inquirer and MySQL.
 
 ## Table of Contents
-* [Video](#Video)
+* [Walkthrough Video](#walkthrough-video)
 * [Usage](#usage)
 * [Installation](#installation)
 * [License](#license)
 * [How to Contribute](#how-to-contribute)
 * [Questions](#questions)
 
-## Video
-### [Click to watch a demo video!](https://watch.screencastify.com/v/cxJoNtDCsNBkgKMQThk1)
+## Walkthrough Video
+### [Click to watch a walkthrough demo!](https://watch.screencastify.com/v/cxJoNtDCsNBkgKMQThk1)
 
 ## Usage
 
