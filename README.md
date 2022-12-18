@@ -26,8 +26,8 @@ This application is a Node.js command-line application that also utilizes Inquir
 5. Setup your sql files:
     1. Access the mysql terminal by using the command: `mysql -u <enter your username> -p`. Then type in your password when prompted.
     2. Run the following commands in the mysql terminal: 
-      * `source db/schema.sql`
-      * `source db/seed.sql`
+        * `source db/schema.sql`
+        * `source db/seed.sql`
 
 ## Usage
 
