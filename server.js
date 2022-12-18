@@ -100,10 +100,9 @@ function viewDepartment() {
     // query database
     db.query("SELECT * FROM department", function (err, results) {
       console.table(results);
-      startAPP();
+      runApp();
       if (err) throw err;
     });
-    console.log("View employees by department");
   }
   
 // view all roles
@@ -112,7 +111,7 @@ function viewRoles() {
 db.query("SELECT * FROM role", function (err, results) {
     console.table(results);
     console.log("View all roles");
-    startAPP();
+    runApp();
     if (err) throw err;
 });
 }
@@ -122,30 +121,29 @@ function viewEmployees() {
 // Query database
 db.query("SELECT * FROM employee", function (err, results) {
     console.table(results);
-    console.log("View employees by department");
-    startAPP();
+    console.log("View all employees by department");
+    runApp();
     if (err) throw err;
 });
 }
 
 // add a department
 function addDepartment() {
-inquirer
-    .prompt([
+inquirer.prompt([
     {
         name: "newDepartment",
         type: "input",
-        message: "Please enter the name of new department!",
+        message: "Please enter the name of the new department!",
     },
     ])
     .then((answers) => {
     db.query(
-        "INSERT INTO department (name) VALUES (?)",
+        "INSERT INTO department (department_name) VALUES (?)",
         answers.newDepartment,
         function (err, results) {
-        console.table(results);
-        startAPP();
-        if (err) throw err;
+            if (err) throw err;
+            console.table(results);
+            runApp();
         }
     );
     });
@@ -153,32 +151,31 @@ inquirer
 
 // add a role
 function addRole() {
-inquirer
-    .prompt([
+inquirer.prompt([
     {
-        name: "newRole",
+        name: "newTitle",
         type: "input",
-        message: "Please enter the name of new role!",
+        message: "Please enter the job title of the new role!",
+    },
+    {
+        name: "department",
+        type: "input",
+        message: "Please choose the department of the new role!",
     },
     {
         name: "newSalary",
         type: "input",
-        message: "Please enter the salary of new role!",
-    },
-    {
-        name: "newID",
-        type: "input",
-        message: "Please enter the department ID!",
+        message: "Please enter the salary of the new role!",
     },
     ])
     .then((answers) => {
     db.query(
-        "INSERT INTO role (title, salary, department_id) VALUES (?,?,?)",
-        [answers.newRole, answers.newSalary, answers.newID],
+        "INSERT INTO role (title, department_name, salary) VALUES (?,?,?)",
+        [answers.newTitle, answers.department, answers.newSalary],
         function (err, results) {
-        console.table(results);
-        startAPP();
-        if (err) throw err;
+            if (err) throw err;
+            console.table(results);
+            runApp();
         }
     );
     });
@@ -186,8 +183,7 @@ inquirer
 
 // add an employee
 function addEmployee() {
-inquirer
-    .prompt([
+inquirer.prompt([
     {
         name: "first_name",
         type: "input",
@@ -199,18 +195,23 @@ inquirer
         message: "Please enter the new employee's last name!",
     },
     {
-        name: "role_id",
+        name: "title",
         type: "input",
-        message: "Please enter the department ID!",
+        message: "Please enter the job title of the new employee!",
     },
+    {
+        name: "manager_name",
+        type: "input",
+        message: "Please enter the full name of the new employee's manager!",
+    },    
     ])
     .then((answers) => {
     db.query(
-        "INSERT INTO employee (first_name, last_name, role_id) VALUES (?,?,?)",
-        [answers.first_name, answers.last_name, answers.role_id],
+        "INSERT INTO employee (first_name, last_name, title, manager_name) VALUES (?,?,?,?)",
+        [answers.first_name, answers.last_name, answers.title, answers.manager_name],
         function (err, results) {
         console.table(results);
-        startAPP();
+        runApp();
         if (err) throw err;
         }
     );
@@ -219,20 +220,20 @@ inquirer
 
 // update an employee role
 function updateRole() {
-inquirer
-    .prompt([
-    {
-        name: "first_name",
-        type: "input",
-        message:
-        "Please enter the first name of the employee you like to update!",
-    },
+inquirer.prompt([
     {
         name: "role_id",
         type: "number",
         message:
-        "Please enter the new role ID of the employee you like to update!",
+        "Please enter the employee's new role ID!",
     },
+    {
+        name: "first_name",
+        type: "input",
+        message:
+        "Please enter the first name of the employee you would like to update!",
+    },
+    
     ])
     .then(function (answers) {
     db.query(
@@ -245,7 +246,7 @@ inquirer
         db.query(`SELECT * FROM employee`, (err, results) => {
             if (err) throw err;
             console.table(results);
-            startAPP();
+            runApp();
         });
         }
     );
