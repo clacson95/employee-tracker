@@ -3,18 +3,16 @@
 ## Description
 This application is a Node.js command-line application that also utilizes Inquirer and MySQL.
 
-This application has been deployed to GitHub Pages: (not yet deployed)
-### [Deployed Application](https://clacson95.github.io/employee-tracker/)
-
 ## Table of Contents
-* [Screenshots](#screenshots)
+* [Video](#Video)
 * [Installation](#installation)
 * [Usage](#usage)
 * [License](#license)
 * [How to Contribute](#how-to-contribute)
 * [Questions](#questions)
 
-## Screenshots
+## Video
+[Click to watch a demo video!]()
 
 ## Installation
 1. Ensure node.js is installed. 
