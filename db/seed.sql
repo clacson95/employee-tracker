@@ -1,3 +1,5 @@
+USE employee_db;
+
 INSERT INTO department (department_name)
 VALUES 
 ('Management'),
@@ -6,29 +8,29 @@ VALUES
 ('Human Resources'), 
 ('Customer Service');
 
-INSERT INTO role (title, department_name, salary)
+INSERT INTO role (title, department_id, salary)
 VALUES 
-('CEO', 'Management', 400000),
-('Regional Manager', 'Management', 150000), 
-('Senior Sales Rep', 'Sales', 100000),
-('Sales Rep', 'Sales', 80000),
-('Head of Accounting', 'Accounting', 75000),
-('Accountant', 'Accounting', 65000),
-('Human Resources Rep', 'Human Resources', 60000),
-('Customer Service Rep', 'Customer Service' 55000),
-('Receptionist', 'Customer Service', 45000);
+('CEO', 1, 400000),
+('Regional Manager', 1, 150000), 
+('Senior Sales Rep', 2, 100000),
+('Sales Rep', 2, 80000),
+('Head of Accounting', 3, 75000),
+('Accountant', 3, 65000),
+('Human Resources Rep', 4, 60000),
+('Customer Service Rep', 5, 55000),
+('Receptionist', 5, 45000);
 
-INSERT INTO employee (first_name, last_name, title, department_name, salary, manager_name)
+INSERT INTO employee (first_name, last_name, role_id, manager_id)
 VALUES 
-('David', 'Wallace', 'CEO', 'Management', 400000, null),
-('Michael', 'Scott', 'Regional Manager', 'Management', 150000, 'David Wallace'),
-('Jim', 'Halpert', 'Senior Sales Rep', 'Sales', 100000, 'Michael Scott'),
-('Dwight', 'Schrute', 'Senior Sales Rep', 'Sales', 100000, 'Michael Scott'),
-('Stanley', 'Hudson', 'Sales Rep', 'Sales', 80000, 'Michael Scott'),
-('Andy', 'Bernard', 'Sales Rep', 'Sales', 80000, 'Michael Scott'),
-('Angela', 'Martin', 'Head of Accounting', 'Accounting', 75000, 'Michael Scott'),
-('Kevin', 'Malone', 'Accountant', 'Accounting', 65000, 'Angela Martin'),
-('Oscar', 'Martinez', 'Accountant', 'Accounting', 65000, 'Angela Martin'),
-('Toby', 'Flenderson', 'Human Resources Rep', 'Human Resources', 60000, 'Michael Scott'),
-('Kelly', 'Kapoor', 'Customer Service Rep', 'Customer Service' 55000, 'Michael Scott'),
-('Pam', 'Beesly', 'Receptionist', 'Customer Service', 45000, 'Michael Scott');
+('David', 'Wallace', 1, null),
+('Michael', 'Scott', 2, 1),
+('Jim', 'Halpert', 3, 2),
+('Dwight', 'Schrute', 3, 2),
+('Stanley', 'Hudson', 4, 2),
+('Andy', 'Bernard', 4, 2),
+('Angela', 'Martin', 5, 2),
+('Kevin', 'Malone', 6, 7),
+('Oscar', 'Martinez', 6, 7),
+('Toby', 'Flenderson', 7, 2),
+('Kelly', 'Kapoor', 8, 2),
+('Pam', 'Beesly', 9, 2);

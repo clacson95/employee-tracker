@@ -18,12 +18,9 @@
 // =====
 
 // include required packages
-// const express = require("express");
-// const app = express();
 const mysql = require("mysql2");
 const inquirer = require("inquirer");
-const consoleTable = require("console.table");
-const PORT = process.env.PORT || 3306;
+require("console.table");
 
 // connection
 const db = mysql.createConnection(
@@ -38,17 +35,6 @@ const db = mysql.createConnection(
     },
     console.log("Successfully connected to the employee_db database.")
 );
-
-// db.connect(function (err) {
-//   if (err) throw err;
-//   app.listen(PORT, () => {
-//     console.log("Now listening...");
-//   });
-
-//   runApp();
-// });
-
-
 
 // =========
 // Functions
@@ -101,9 +87,9 @@ function runApp() {
 runApp();
 
 // function to finish changes and exit the application
-// function finish() {
-//     process.exit()
-// }
+function finish() {
+    process.exit()
+}
 
 // functions for userChoices
 
@@ -170,9 +156,9 @@ inquirer.prompt([
         message: "Please enter the job title of the new role!",
     },
     {
-        name: "department",
+        name: "departmentID",
         type: "input",
-        message: "Please choose the department of the new role!",
+        message: "Please enter the department ID of the new role!",
     },
     {
         name: "newSalary",
@@ -182,15 +168,15 @@ inquirer.prompt([
     ])
     .then((answers) => {
     db.query(
-        "INSERT INTO role (title, department_name, salary) VALUES (?,?,?)",
-        [answers.newTitle, answers.department, answers.newSalary],
+        "INSERT INTO role (title, department_id, salary) VALUES (?,?,?)",
+        [answers.newTitle, answers.departmentID, answers.newSalary],
         function (err, results) {
           console.table(results);
           runApp();
           if (err) throw err;
         }
     );
-    });
+  });
 }
 
 // add an employee
@@ -207,7 +193,7 @@ inquirer.prompt([
         message: "Please enter the new employee's last name!",
     },
     {
-        name: "title",
+        name: "role_id",
         type: "input",
         message: "Please enter the job title of the new employee!",
     },
@@ -219,8 +205,8 @@ inquirer.prompt([
     ])
     .then((answers) => {
     db.query(
-        "INSERT INTO employee (first_name, last_name, title, manager_name) VALUES (?,?,?,?)",
-        [answers.first_name, answers.last_name, answers.title, answers.manager_name],
+        "INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES (?,?,?,?)",
+        [answers.first_name, answers.last_name, answers.role_id, answers.manager_id],
         function (err, results) {
           console.table(results);
           runApp();
@@ -234,23 +220,22 @@ inquirer.prompt([
 function updateRole() {
 inquirer.prompt([
     {
-        name: "role_id",
-        type: "number",
-        message:
-        "Please enter the employee's new role ID!",
-    },
-    {
-        name: "first_name",
-        type: "input",
-        message:
+      name: "first_name",
+      type: "input",
+      message:
         "Please enter the first name of the employee you would like to update!",
     },
-    
-    ])
-    .then(function (answers) {
+    {
+      name: "role_id",
+      type: "number",
+      message:
+        "Please enter the new role ID of the employee you would like to update!",
+    },
+  ])
+  .then(function (answers) {
     db.query(
-        "UPDATE employee SET role_id = ? WHERE first_name = ?",
-        [answers.role_id, answers.first_name],
+      "UPDATE employee SET role_id = ? WHERE first_name = ?",
+      [answers.role_id, answers.first_name],
         function (err, results) {
         if (err) throw err;
         console.log("results");
@@ -262,5 +247,5 @@ inquirer.prompt([
         });
         }
     );
-    });
+  });
 }
