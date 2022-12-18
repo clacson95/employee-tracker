@@ -18,8 +18,8 @@
 // =====
 
 // include required packages
-const express = require("express");
-const app = express();
+// const express = require("express");
+// const app = express();
 const mysql = require("mysql2");
 const inquirer = require("inquirer");
 const consoleTable = require("console.table");
@@ -29,13 +29,25 @@ const PORT = process.env.PORT || 3306;
 const db = mysql.createConnection(
     {
         host: "localhost",
+        // MySQL username
         user: "root",
         port: 3306,
-        password: "password",
+        // MySQL password
+        password: "root",
         database: "employee_db",
     },
     console.log("Successfully connected to the employee_db database.")
 );
+
+// db.connect(function (err) {
+//   if (err) throw err;
+//   app.listen(PORT, () => {
+//     console.log("Now listening...");
+//   });
+
+//   runApp();
+// });
+
 
 
 // =========
@@ -48,7 +60,7 @@ function runApp() {
         {
           type: "list",
           name: "userChoice",
-          message: "What would you like to do? Use the arrow keys to select an option, then hit the 'Enter' key.",
+          message: "What would you like to do?",
           choices: [
             "View all departments",
             "View all roles",
@@ -89,9 +101,9 @@ function runApp() {
 runApp();
 
 // function to finish changes and exit the application
-function finish() {
-    process.exit()
-}
+// function finish() {
+//     process.exit()
+// }
 
 // functions for userChoices
 
@@ -141,9 +153,9 @@ inquirer.prompt([
         "INSERT INTO department (department_name) VALUES (?)",
         answers.newDepartment,
         function (err, results) {
-            if (err) throw err;
-            console.table(results);
-            runApp();
+          console.table(results);
+          runApp();
+          if (err) throw err;
         }
     );
     });
@@ -173,9 +185,9 @@ inquirer.prompt([
         "INSERT INTO role (title, department_name, salary) VALUES (?,?,?)",
         [answers.newTitle, answers.department, answers.newSalary],
         function (err, results) {
-            if (err) throw err;
-            console.table(results);
-            runApp();
+          console.table(results);
+          runApp();
+          if (err) throw err;
         }
     );
     });
@@ -210,9 +222,9 @@ inquirer.prompt([
         "INSERT INTO employee (first_name, last_name, title, manager_name) VALUES (?,?,?,?)",
         [answers.first_name, answers.last_name, answers.title, answers.manager_name],
         function (err, results) {
-        console.table(results);
-        runApp();
-        if (err) throw err;
+          console.table(results);
+          runApp();
+          if (err) throw err;
         }
     );
     });
@@ -244,9 +256,9 @@ inquirer.prompt([
         console.log("results");
 
         db.query(`SELECT * FROM employee`, (err, results) => {
-            if (err) throw err;
-            console.table(results);
-            runApp();
+          console.table(results);
+          runApp();
+          if (err) throw err;
         });
         }
     );
