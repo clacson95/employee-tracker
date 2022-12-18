@@ -12,7 +12,7 @@ This application is a Node.js command-line application that also utilizes Inquir
 * [Questions](#questions)
 
 ## Video
-### [Click to watch a demo video!]()
+### [Click to watch a demo video!](https://watch.screencastify.com/v/cxJoNtDCsNBkgKMQThk1)
 
 ## Usage
 
