@@ -1,0 +1,27 @@
+{
+  "name": "employee-tracker",
+  "version": "1.0.0",
+  "description": "## Description This application is a Node.js command-line application that also utilizes Inquirer and MySQL.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/clacson95/employee-tracker.git"
+  },
+  "keywords": [],
+  "author": "Caleb Lacson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/clacson95/employee-tracker/issues"
+  },
+  "homepage": "https://github.com/clacson95/employee-tracker#readme",
+  "dependencies": {
+    "console.table": "^0.10.0",
+    "inquirer": "^8.2.4",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.3.3"
+  }
+}
