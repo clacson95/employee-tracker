@@ -195,12 +195,12 @@ inquirer.prompt([
     {
         name: "role_id",
         type: "input",
-        message: "Please enter the job title of the new employee!",
+        message: "Please enter the role id of the new employee!",
     },
     {
         name: "manager_name",
         type: "input",
-        message: "Please enter the id of the new employee's manager!",
+        message: "Please enter the employee id of the new employee's manager!",
     },    
     ])
     .then((answers) => {
