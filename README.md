@@ -5,14 +5,22 @@ This application is a Node.js command-line application that also utilizes Inquir
 
 ## Table of Contents
 * [Video](#Video)
-* [Installation](#installation)
 * [Usage](#usage)
+* [Installation](#installation)
 * [License](#license)
 * [How to Contribute](#how-to-contribute)
 * [Questions](#questions)
 
 ## Video
 ### [Click to watch a demo video!]()
+
+## Usage
+
+To use this back-end application, fork the repository, clone the repository, or download the ZIP file to access the code for yourself. This will require you to have a text editor. I recommend Visual Studio Code, but there are a plethora of other options available.
+
+Next, follow the Installation instructions below.
+
+Then, open the `server.js` file in your text editor's terminal, and enter `node server.js`.
 
 ## Installation
 1. Ensure node.js is installed. 
@@ -28,12 +36,6 @@ This application is a Node.js command-line application that also utilizes Inquir
     2. Run the following commands in the mysql terminal: 
         * `source db/schema.sql`
         * `source db/seed.sql`
-
-## Usage
-
-To use this back-end application, fork the repository, clone the repository, or download the ZIP file to access the code for yourself. This will require you to have a text editor. I recommend Visual Studio Code, but there are a plethora of other options available.
-
-Then, open the `server.js` file in your text editor's terminal, and enter `node server.js`.
 
 ## License
 
