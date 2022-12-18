@@ -12,7 +12,7 @@ This application is a Node.js command-line application that also utilizes Inquir
 * [Questions](#questions)
 
 ## Video
-###[Click to watch a demo video!]()
+### [Click to watch a demo video!]()
 
 ## Installation
 1. Ensure node.js is installed. 
