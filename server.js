@@ -200,7 +200,7 @@ inquirer.prompt([
     {
         name: "manager_name",
         type: "input",
-        message: "Please enter the full name of the new employee's manager!",
+        message: "Please enter the id of the new employee's manager!",
     },    
     ])
     .then((answers) => {
