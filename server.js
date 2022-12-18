@@ -198,7 +198,7 @@ inquirer.prompt([
         message: "Please enter the role id of the new employee!",
     },
     {
-        name: "manager_name",
+        name: "manager_id",
         type: "input",
         message: "Please enter the employee id of the new employee's manager!",
     },    
