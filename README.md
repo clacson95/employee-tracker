@@ -27,10 +27,10 @@ This application has been deployed to GitHub Pages: (not yet deployed)
 * `npm i console.table`
 
 ## Usage
-There are two methods to use this application:
 
-1. Use the link above to access the deployed application. 
-2. Alternatively, you can fork the repository, clone the repository, or download the ZIP file to access the code for yourself. This will require you to have a text editor. I recommend Visual Studio Code, but there are a plethora of other options available.
+To use this back-end application, fork the repository, clone the repository, or download the ZIP file to access the code for yourself. This will require you to have a text editor. I recommend Visual Studio Code, but there are a plethora of other options available.
+
+Then, open the `server.js` file in your text editor's terminal, and enter `node server.js`.
 
 ## License
 
