@@ -19,9 +19,12 @@ This application has been deployed to GitHub Pages: (not yet deployed)
 ## Installation
 1. Ensure node.js is installed. 
 2. Ensure there is a `.gitignore` file (with `node_modules` and `.DS_Store` written inside) before installing any npm dependencies. 
-3. Ensure your repository includes a package.json file. Create one by entering the npm i -y command in the terminal. 
-4. Ensure the inquirer module is installed, using the npm i inquirer@^8.2.4 command in the terminal.
-5. 
+3. Create a `package.json` file by entering the `npm init -y` command in the terminal. 
+4. Use the following commands to install required dependencies:
+* `npm i inquirer@8.2.4`
+* `npm i mysql`
+* `npm i mysql2`
+* `npm i console.table`
 
 ## Usage
 There are two methods to use this application:
