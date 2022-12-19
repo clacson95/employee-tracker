@@ -27,10 +27,10 @@ Then, open the `server.js` file in your text editor's terminal, and enter `node 
 2. Ensure there is a `.gitignore` file (with `node_modules` and `.DS_Store` written inside) before installing any npm dependencies. 
 3. Create a `package.json` file by entering the `npm init -y` command in the terminal. 
 4. Use the following commands to install required dependencies:
-* `npm i inquirer@8.2.4`
-* `npm i mysql`
-* `npm i mysql2`
-* `npm i console.table`
+    * `npm i inquirer@8.2.4`
+    * `npm i mysql`
+    * `npm i mysql2`
+    * `npm i console.table`
 5. Setup your sql files:
     1. Access the mysql terminal by using the command: `mysql -u <enter your username> -p`. Then type in your password when prompted.
     2. Run the following commands in the mysql terminal: 
